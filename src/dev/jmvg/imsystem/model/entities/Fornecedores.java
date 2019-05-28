@@ -1,14 +1,21 @@
 package dev.jmvg.imsystem.model.entities;
 
-import javax.persistence.*;
+import dev.jmvg.imsystem.model.dao.EntidadeBase;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_fornecedores")
-public class Fornecedores {
+public class Fornecedores implements EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "for_codigo")
-    private int codigo;
+    private Integer codigo;
     @Column(name = "for_nome")
     private String nome;
     @Column(name = "for_descricao")
@@ -18,11 +25,12 @@ public class Fornecedores {
     @Column(name = "for_telefone")
     private String telefone;
 
-    public int getCodigo() {
+    @Override
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 

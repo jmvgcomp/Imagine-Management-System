@@ -6,11 +6,15 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Lista de entidades -->
         <class>dev.jmvg.imsystem.model.entities.Produtos</class>
+        <class>dev.jmvg.imsystem.model.entities.Fornecedores</class>
+        <class>dev.jmvg.imsystem.model.entities.Funcionarios</class>
+        <class>dev.jmvg.imsystem.model.entities.Vendas</class>
+        <class>dev.jmvg.imsystem.model.entities.Itens</class>
         <properties>
             <!-- Propriedades JDBC -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/imsystem"/>
-            <property name="javax.persistence.jdbc.user" value="dev"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/imsystem?serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.user" value="developer"/>
             <property name="javax.persistence.jdbc.password" value="Jj@12345678"/>
             <!-- Configurações específicas do Hibernate -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>

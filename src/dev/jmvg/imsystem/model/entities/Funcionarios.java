@@ -1,5 +1,7 @@
 package dev.jmvg.imsystem.model.entities;
 
+import dev.jmvg.imsystem.model.dao.EntidadeBase;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,11 +11,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_funcionarios")
-public class Funcionarios {
+public class Funcionarios implements EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "fun_codigo")
-    private int codigo;
+    private Integer codigo;
     @Column(name = "fun_nome")
     private String nome;
     @Column(name = "fun_cpf")
@@ -25,11 +27,12 @@ public class Funcionarios {
     @Column(name = "fun_nivel")
     private String nivel;
 
-    public int getCodigo() {
+    @Override
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 

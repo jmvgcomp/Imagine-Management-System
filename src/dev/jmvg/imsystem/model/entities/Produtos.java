@@ -1,27 +1,41 @@
 package dev.jmvg.imsystem.model.entities;
 
-import javax.persistence.*;
+import dev.jmvg.imsystem.model.dao.EntidadeBase;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_produtos")
-public class Produtos {
+public class Produtos implements EntidadeBase {
     @Id
     @Column(name = "pro_codigo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int codigo;
+    private Integer codigo;
     @Column(name = "pro_descricao")
     private String descricao;
     @Column(name = "pro_valor")
     private Double valor;
     @Column(name = "pro_quantidade")
-    private int quantidade;
+    private Integer quantidade;
 
+    @ManyToOne
+    @JoinColumn(name = "tbl_fornecedores_for_codigo", referencedColumnName = "for_codigo")
+    private Fornecedores fornecedores;
 
-    public int getCodigo() {
+    @Override
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -41,11 +55,19 @@ public class Produtos {
         this.valor = valor;
     }
 
-    public int getQuantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public Fornecedores getFornecedores() {
+        return fornecedores;
+    }
+
+    public void setFornecedores(Fornecedores fornecedores) {
+        this.fornecedores = fornecedores;
     }
 }
