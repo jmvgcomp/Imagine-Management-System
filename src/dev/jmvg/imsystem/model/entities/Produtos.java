@@ -70,4 +70,15 @@ public class Produtos implements EntidadeBase {
     public void setFornecedores(Fornecedores fornecedores) {
         this.fornecedores = fornecedores;
     }
+
+    @Override
+    public String toString() {
+        return "Produtos{" +
+                "codigo=" + codigo +
+                ", descricao='" + descricao + '\'' +
+                ", valor=" + valor +
+                ", quantidade=" + quantidade +
+                ", fornecedores=" + fornecedores +
+                '}';
+    }
 }

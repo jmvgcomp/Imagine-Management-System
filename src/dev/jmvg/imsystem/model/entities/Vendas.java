@@ -63,4 +63,14 @@ public class Vendas implements EntidadeBase {
     public void setFuncionarios(Funcionarios funcionarios) {
         this.funcionarios = funcionarios;
     }
+
+    @Override
+    public String toString() {
+        return "Vendas{" +
+                "codigo=" + codigo +
+                ", horario=" + horario +
+                ", valorTotal=" + valorTotal +
+                ", funcionarios=" + funcionarios +
+                '}';
+    }
 }

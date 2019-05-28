@@ -65,4 +65,15 @@ public class Fornecedores implements EntidadeBase {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    @Override
+    public String toString() {
+        return "Fornecedores{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", cnpj='" + cnpj + '\'' +
+                ", telefone='" + telefone + '\'' +
+                '}';
+    }
 }

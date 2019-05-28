@@ -62,4 +62,15 @@ public class Itens implements EntidadeBase {
     public void setVendas(Vendas vendas) {
         this.vendas = vendas;
     }
+
+    @Override
+    public String toString() {
+        return "Itens{" +
+                "codigo=" + codigo +
+                ", quantidade=" + quantidade +
+                ", valorPacial=" + valorPacial +
+                ", produtos=" + produtos +
+                ", vendas=" + vendas +
+                '}';
+    }
 }

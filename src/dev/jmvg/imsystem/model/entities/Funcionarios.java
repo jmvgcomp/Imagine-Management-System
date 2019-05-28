@@ -75,4 +75,16 @@ public class Funcionarios implements EntidadeBase {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
+
+    @Override
+    public String toString() {
+        return "Funcionarios{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", senha='" + senha + '\'' +
+                ", nivel='" + nivel + '\'' +
+                '}';
+    }
 }

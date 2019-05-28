@@ -1,4 +1,4 @@
-package dev.jmvg.imsystem.connection;
+package dev.jmvg.imsystem.model.connection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -1,6 +1,6 @@
 package dev.jmvg.imsystem.view;
 
-import dev.jmvg.imsystem.connection.ConnectionFactory;
+import dev.jmvg.imsystem.Exceptions.DAOException;
 import dev.jmvg.imsystem.model.dao.DAO;
 import dev.jmvg.imsystem.model.entities.Fornecedores;
 import dev.jmvg.imsystem.model.entities.Funcionarios;
@@ -12,7 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.persistence.EntityManager;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -55,10 +54,13 @@ public class Main extends Application {
         v.setValorTotal(350.0);
         v.setFuncionarios(fun);
 
-        DAO<Fornecedores> fornecedoresDAO = new DAO<>();
+        DAO<Produtos> produtosDAO = new DAO<>();
 
-        fornecedoresDAO.salvar(f);
-
+        try {
+            produtosDAO.listarTodos(p).forEach(System.out::println);
+        } catch (DAOException e) {
+            e.printStackTrace();
+        }
         //launch(args);
     }
 }
