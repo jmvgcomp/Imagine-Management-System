@@ -1,33 +1,51 @@
 package dev.jmvg.imsystem.view;
 
-import dev.jmvg.imsystem.Exceptions.DAOException;
-import dev.jmvg.imsystem.model.dao.DAO;
-import dev.jmvg.imsystem.model.entities.Fornecedores;
-import dev.jmvg.imsystem.model.entities.Funcionarios;
-import dev.jmvg.imsystem.model.entities.Produtos;
-import dev.jmvg.imsystem.model.entities.Vendas;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
-import java.sql.Timestamp;
-import java.util.Date;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
-
+    private double xOffset = 0;
+    private  double yOffset = 0;
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../dev/jmvg/imsystem/view/gui/Telaprincipal.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+    public void start(Stage stage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/dev/jmvg/imsystem/view/gui/telas/Login.fxml"));
+        stage.initStyle(StageStyle.TRANSPARENT);
+
+        //movimento da tela
+
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
 
     public static void main(String[] args) {
-        Fornecedores f = new Fornecedores();
+      /*  Fornecedores f = new Fornecedores();
         f.setNome("CONEXAO EPI");
         f.setDescricao("Empresa de EPI em Geral");
         f.setCnpj("0554.254/3333-1");
@@ -60,7 +78,7 @@ public class Main extends Application {
             produtosDAO.listarTodos(p).forEach(System.out::println);
         } catch (DAOException e) {
             e.printStackTrace();
-        }
-        //launch(args);
+        }*/
+        launch(args);
     }
 }
