@@ -1,6 +1,5 @@
-package dev.jmvg.imsystem.view;
+package dev.jmvg.imsystem.controller;
 
-import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,16 +9,16 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class Main extends Application {
-    private double xOffset = 0;
-    private  double yOffset = 0;
-    @Override
-    public void start(Stage stage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/dev/jmvg/imsystem/view/gui/telas/Login.fxml"));
-        stage.initStyle(StageStyle.TRANSPARENT);
+import java.io.IOException;
 
-        //movimento da tela
+public class InicialController {
+    private static double xOffset = 0;
+    private static   double yOffset = 0;
 
+    public static void start(){
+        try{
+        Parent root = FXMLLoader.load(InicialController.class.getResource("/dev/jmvg/imsystem/view/gui/telas/Inicial.fxml"));
+        Stage  stage = new Stage();
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -37,14 +36,13 @@ public class Main extends Application {
         });
 
 
+        stage.initStyle(StageStyle.TRANSPARENT);
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
+        } catch (    IOException e) {
+        e.printStackTrace();
+        }
     }
 }

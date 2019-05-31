@@ -2,7 +2,6 @@ package dev.jmvg.imsystem.model.dao;
 
 import dev.jmvg.imsystem.Exceptions.DAOException;
 import dev.jmvg.imsystem.model.connection.ConnectionFactory;
-import dev.jmvg.imsystem.model.entities.Fornecedores;
 
 import javax.persistence.EntityManager;
 import java.util.List;
