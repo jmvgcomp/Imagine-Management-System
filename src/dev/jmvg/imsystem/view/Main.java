@@ -1,14 +1,15 @@
 package dev.jmvg.imsystem.view;
 
+import dev.jmvg.imsystem.model.connection.ConnectionFactory;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import javax.persistence.EntityManager;
 
 public class Main extends Application {
     private double xOffset = 0;
@@ -20,20 +21,14 @@ public class Main extends Application {
 
         //movimento da tela
 
-        root.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            }
+        root.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
         });
 
-        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                stage.setX(event.getScreenX() - xOffset);
-                stage.setY(event.getScreenY() - yOffset);
-            }
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
         });
 
 
@@ -45,6 +40,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        new ConnectionFactory().getConnection();
         launch(args);
     }
 }

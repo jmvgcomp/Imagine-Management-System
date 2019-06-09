@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="dev.jmvg.imsystem.controller.RelatoriosController"
+           >
+    <AnchorPane fx:id="an_relatorios" layoutX="200.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <Label text="RELATÓRIO" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="14.0">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Label>
+            <Pane prefHeight="5.0" prefWidth="206.0" style="-fx-background-color: #04B2D9;" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="39.0" />
+        </children>
+    </AnchorPane>
+</AnchorPane>

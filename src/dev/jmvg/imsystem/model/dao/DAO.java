@@ -18,6 +18,7 @@ public class DAO<T extends EntidadeBase> {
                 em.persist(t);
             }else{
                 em.merge(t);
+
             }
             em.getTransaction().commit();
         }catch (Exception e){

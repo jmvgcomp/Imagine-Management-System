@@ -2,23 +2,27 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.jmvg.imsystem.controller.InicialController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #101E26;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <fx:include fx:id="an_relatorios" source="Relatorios.fxml" />
+      <fx:include fx:id="an_fornecedores" source="Fornecedores.fxml" />
+      <fx:include fx:id="an_clientes" source="Clientes.fxml" />
+      <fx:include fx:id="an_produtos" source="Produtos.fxml" />
+      <fx:include fx:id="an_vendas" source="Vendas.fxml" />
+      <fx:include fx:id="an_funcionarios" source="Funcionarios.fxml" />
+      <AnchorPane fx:id="an_menu" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #101E26;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="89.0" fitWidth="121.0" layoutX="52.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagens/login/icons8_mind_map_200px.png" />
                </image>
             </ImageView>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="15.0" layoutY="144.0" prefHeight="46.0" prefWidth="170.0" text="Usuarios" textFill="WHITE">
+            <JFXButton fx:id="btn_menu_funcionarios" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="144.0" onAction="#menuButtonAction" prefHeight="46.0" prefWidth="170.0" text="Funcionários" textFill="WHITE">
                <graphic>
                   <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_KEY" size="15" />
                </graphic>
@@ -26,7 +30,7 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="15.0" layoutY="190.0" prefHeight="46.0" prefWidth="170.0" text="Vendas" textFill="WHITE">
+            <JFXButton fx:id="btn_menu_vendas" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="190.0" onAction="#menuButtonAction" prefHeight="46.0" prefWidth="170.0" text="Vendas" textFill="WHITE">
                <graphic>
                   <MaterialDesignIconView fill="WHITE" glyphName="MARGIN" size="15" />
                </graphic>
@@ -34,7 +38,7 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="15.0" layoutY="236.0" prefHeight="46.0" prefWidth="170.0" text="Produtos" textFill="WHITE">
+            <JFXButton fx:id="btn_menu_produtos" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="236.0" onAction="#menuButtonAction" prefHeight="46.0" prefWidth="170.0" text="Produtos" textFill="WHITE">
                <graphic>
                   <MaterialDesignIconView fill="WHITE" glyphName="CUBE_OUTLINE" size="15" />
                </graphic>
@@ -42,7 +46,7 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="15.0" layoutY="282.0" prefHeight="46.0" prefWidth="170.0" text="Clientes" textFill="WHITE">
+            <JFXButton fx:id="btn_menu_clientes" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="282.0" onAction="#menuButtonAction" prefHeight="46.0" prefWidth="170.0" text="Clientes" textFill="WHITE">
                <graphic>
                   <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_STAR_VARIANT" size="15" />
                </graphic>
@@ -50,7 +54,7 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="15.0" layoutY="323.0" prefHeight="46.0" prefWidth="170.0" text="Fornecedores" textFill="WHITE">
+            <JFXButton fx:id="btn_menu_fornecedores" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="323.0" onAction="#menuButtonAction" prefHeight="46.0" prefWidth="170.0" text="Fornecedores" textFill="WHITE">
                <graphic>
                   <MaterialDesignIconView fill="WHITE" glyphName="TRUCK_DELIVERY" size="15" />
                </graphic>
@@ -58,7 +62,7 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="15.0" layoutY="369.0" prefHeight="46.0" prefWidth="170.0" text="Relatório" textFill="WHITE">
+            <JFXButton fx:id="btn_menu_relatório" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="369.0" onAction="#menuButtonAction" prefHeight="46.0" prefWidth="170.0" text="Relatório" textFill="WHITE">
                <graphic>
                   <MaterialDesignIconView fill="WHITE" glyphName="CLIPBOARD_TEXT" size="15" />
                </graphic>
@@ -66,7 +70,7 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="CENTER" layoutX="11.0" layoutY="540.0" prefHeight="46.0" prefWidth="170.0" text="Sair" textFill="WHITE">
+            <JFXButton alignment="CENTER" layoutX="11.0" layoutY="540.0" prefHeight="46.0" prefWidth="170.0" text="Sair" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="540.0">
                <graphic>
                   <MaterialDesignIconView fill="WHITE" glyphName="POWER" size="15" />
                </graphic>
@@ -75,65 +79,5 @@
                </font>
             </JFXButton>
          </children></AnchorPane>
-      <AnchorPane fx:id="an_vendas" layoutX="200.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #fff;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label layoutX="15.0" layoutY="14.0" text="PAINEL DE VENDAS" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="14.0">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Pane layoutX="15.0" layoutY="39.0" prefHeight="5.0" prefWidth="206.0" style="-fx-background-color: #04B2D9;" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="39.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="an_produtos" layoutX="200.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label text="PAINEL DE PRODUTOS" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="14.0">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Pane layoutX="14.0" layoutY="23.0" prefHeight="5.0" prefWidth="206.0" style="-fx-background-color: #04B2D9;" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="39.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="an_clientes" layoutX="200.0" prefHeight="600.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label text="PAINEL DE CLIENTES">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Pane prefHeight="5.0" prefWidth="206.0" style="-fx-background-color: #04B2D9;" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="an_fornecedores" layoutX="200.0" prefHeight="600.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label text="PAINEL DE FORNECEDORES">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Pane prefHeight="5.0" prefWidth="206.0" style="-fx-background-color: #04B2D9;" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="an_relatorios" layoutX="200.0" prefHeight="600.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label text="RELATÓRIO">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Pane prefHeight="5.0" prefWidth="206.0" style="-fx-background-color: #04B2D9;" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="an_usuarios" layoutX="200.0" prefHeight="600.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label text="PAINEL DE USUÁRIOS">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Pane prefHeight="5.0" prefWidth="206.0" style="-fx-background-color: #04B2D9;" />
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>

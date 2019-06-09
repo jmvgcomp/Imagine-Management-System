@@ -7,9 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 
 public class FuncionarioDAO extends DAO<Funcionarios> {
-
+    EntityManager em = new ConnectionFactory().getConnection();
     public Funcionarios getFuncionario(String cpf, String senha) {
-        EntityManager em = new ConnectionFactory().getConnection();
+
         try {
             Funcionarios funcionarios = (Funcionarios) em
                     .createQuery(
