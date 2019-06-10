@@ -3,7 +3,6 @@ package dev.jmvg.imsystem.controller;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import dev.jmvg.imsystem.model.dao.FuncionarioDAO;
-import dev.jmvg.imsystem.model.entities.Fornecedores;
 import dev.jmvg.imsystem.model.entities.Funcionarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;

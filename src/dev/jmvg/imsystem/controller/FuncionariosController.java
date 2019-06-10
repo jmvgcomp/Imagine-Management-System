@@ -7,6 +7,7 @@ import dev.jmvg.imsystem.Exceptions.DAOException;
 import dev.jmvg.imsystem.model.dao.DAO;
 import dev.jmvg.imsystem.model.dao.FuncionarioDAO;
 import dev.jmvg.imsystem.model.entities.Funcionarios;
+import dev.jmvg.imsystem.util.TextFieldFormatter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -16,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.Optional;
@@ -54,6 +56,15 @@ public class FuncionariosController implements Initializable {
     @FXML
     private JFXComboBox<String> txt_fun_nivel;
 
+    @FXML
+    void tfTelefone(KeyEvent event) {
+
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("(##)#####-#####");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txt_fun_tel);
+        tff.formatter();
+    }
 
     @FXML
     void btnEditar(ActionEvent event) throws DAOException {
@@ -127,10 +138,6 @@ public class FuncionariosController implements Initializable {
         } catch (DAOException e) {
             e.printStackTrace();
         }
-
-
-
-
     }
 
     private boolean verificarCampos(){

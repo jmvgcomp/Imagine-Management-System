@@ -1,9 +1,9 @@
 package dev.jmvg.imsystem.controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import dev.jmvg.imsystem.Exceptions.DAOException;
+import dev.jmvg.imsystem.Exceptions.ErrorCampoNumero;
 import dev.jmvg.imsystem.model.dao.DAO;
 import dev.jmvg.imsystem.model.entities.Fornecedores;
 import dev.jmvg.imsystem.model.entities.Produtos;
@@ -198,7 +198,14 @@ public class ProdutosController implements Initializable {
             produtos.setCodigo(Integer.valueOf(txt_pro_codigo.getText()));
         }
         produtos.setDescricao(txt_pro_descricao.getText());
-        produtos.setValor(Double.parseDouble(txt_pro_preco.getText()));
+
+        if(txt_pro_preco.getText().matches("^[a-zA-ZÁÂÃÀÇÉÊÍÓÔÕÚÜáâãàçéêíóôõúü]*$")){
+            txt_error.setText("você deve passar um valor válido");
+            throw new ErrorCampoNumero("você deve passar um valor válido.");
+
+        }else{
+            produtos.setValor(Double.parseDouble(txt_pro_preco.getText()));
+        }
         produtos.setQuantidade(Integer.parseInt(txt_pro_quantidade.getText()));
         produtos.setDescricao(txt_pro_descricao.getText());
         produtos.setObservacao(txt_pro_observacao.getText());

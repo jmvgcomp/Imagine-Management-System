@@ -1,12 +1,13 @@
 package dev.jmvg.imsystem.controller;
 
 import com.jfoenix.controls.JFXButton;
-import dev.jmvg.imsystem.model.entities.Fornecedores;
 import dev.jmvg.imsystem.model.entities.Funcionarios;
+import dev.jmvg.imsystem.view.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -39,8 +40,29 @@ public class InicialController implements Initializable {
     private static   double yOffset = 0;
     @FXML
 
-    void logout(ActionEvent actionEvent){
+    void logout(ActionEvent actionEvent) throws IOException {
+        (((Node) actionEvent.getSource()).getScene()).getWindow().hide();
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/dev/jmvg/imsystem/view/gui/telas/Login.fxml"));
+        stage.initStyle(StageStyle.TRANSPARENT);
 
+        //movimento da tela
+
+        root.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
+
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
