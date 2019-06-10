@@ -157,7 +157,7 @@ public class ClienteController implements Initializable {
         }
     }
 
-    public void atualizaPesquisaFuncionaro(){
+    private void atualizaPesquisaFuncionaro(){
         try {
             FilteredList<Clientes> filtrarDados = new FilteredList<>(listaClientes(), e -> true);
             txt_cli_pesquisar.setOnKeyReleased(e -> {

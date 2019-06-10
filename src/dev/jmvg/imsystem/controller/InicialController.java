@@ -1,12 +1,15 @@
 package dev.jmvg.imsystem.controller;
 
 import com.jfoenix.controls.JFXButton;
+import dev.jmvg.imsystem.model.entities.Fornecedores;
+import dev.jmvg.imsystem.model.entities.Funcionarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -19,7 +22,14 @@ import java.util.ResourceBundle;
 public class InicialController implements Initializable {
 
     @FXML
-    private AnchorPane an_funcionarios, an_vendas, an_produtos, an_clientes, an_fornecedores, an_relatorios, an_menu;
+    public AnchorPane an_menu;
+
+    @FXML
+    public Label usuarioLogado, data, nivel;
+
+
+    @FXML
+    private AnchorPane an_funcionarios, an_vendas, an_produtos, an_clientes, an_fornecedores, an_relatorios;
 
     @FXML
     private JFXButton btn_menu_funcionarios, btn_menu_vendas, btn_menu_produtos, btn_menu_clientes, btn_menu_fornecedores, btn_menu_relatório;
@@ -27,6 +37,12 @@ public class InicialController implements Initializable {
 
     private static double xOffset = 0;
     private static   double yOffset = 0;
+    @FXML
+
+    void logout(ActionEvent actionEvent){
+
+    }
+
     @FXML
     void menuButtonAction(ActionEvent event) {
         if(event.getSource() == btn_menu_funcionarios){
@@ -62,33 +78,41 @@ public class InicialController implements Initializable {
         }
     }
 
+    @FXML
+    public void recebeParametros(Funcionarios funcionarios){
+        usuarioLogado.setText(funcionarios.getNome());
+        nivel.setText(funcionarios.getNivel());
+        if(nivel.getText().equalsIgnoreCase("gerente")){
+            btn_menu_funcionarios.setDisable(true);
+            an_vendas.toFront();
+            an_menu.toFront();
+        }else if(nivel.getText().equalsIgnoreCase("funcionario")){
+            btn_menu_funcionarios.setDisable(true);
+            btn_menu_fornecedores.setDisable(true);
+            btn_menu_relatório.setDisable(true);
+            an_vendas.toFront();
+            an_menu.toFront();
+        }
+    }
 
 
-    static void start(){
-        try{
-            Parent root = FXMLLoader.load(InicialController.class.getResource("/dev/jmvg/imsystem/view/gui/telas/Inicial.fxml"));
-            Stage  stage = new Stage();
-            root.setOnMousePressed(event -> {
+    static void start(Scene scene){
+         Stage stage = new Stage();
+            scene.setOnMousePressed(event -> {
                 xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
             });
 
-            root.setOnMouseDragged(event -> {
+            scene.setOnMouseDragged(event -> {
                 stage.setX(event.getScreenX() - xOffset);
                 stage.setY(event.getScreenY() - yOffset);
             });
 
 
             stage.initStyle(StageStyle.TRANSPARENT);
-            Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             stage.setScene(scene);
             stage.show();
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 

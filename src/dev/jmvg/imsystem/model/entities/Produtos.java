@@ -25,6 +25,8 @@ public class Produtos implements EntidadeBase {
     private Double valor;
     @Column(name = "pro_quantidade")
     private Integer quantidade;
+    @Column(name = "pro_observacao")
+    private String observacao;
 
     @ManyToOne
     @JoinColumn(name = "tbl_fornecedores_for_codigo", referencedColumnName = "for_codigo")
@@ -70,6 +72,16 @@ public class Produtos implements EntidadeBase {
     public void setFornecedores(Fornecedores fornecedores) {
         this.fornecedores = fornecedores;
     }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+
+
 
     @Override
     public String toString() {

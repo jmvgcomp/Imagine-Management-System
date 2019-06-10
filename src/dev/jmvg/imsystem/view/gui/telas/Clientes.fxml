@@ -19,47 +19,47 @@
                 </font>
             </Label>
             <Pane prefHeight="5.0" prefWidth="206.0" style="-fx-background-color: #04B2D9;" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="39.0" />
-         <Label layoutX="161.0" layoutY="83.0" text="Representante:">
+         <Label layoutX="160.0" layoutY="55.0" text="Representante:">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label layoutX="13.0" layoutY="83.0" text="Código:">
+         <Label layoutX="12.0" layoutY="55.0" text="Código:">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label layoutX="363.0" layoutY="126.0" text="CNPJ">
+         <Label layoutX="362.0" layoutY="98.0" text="CNPJ">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label layoutX="527.0" layoutY="83.0" text="Telefone:">
+         <Label layoutX="526.0" layoutY="55.0" text="Telefone:">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <JFXTextField fx:id="txt_cli_codigo" disable="true" layoutX="66.0" layoutY="78.0" prefHeight="25.0" prefWidth="78.0">
+         <JFXTextField fx:id="txt_cli_codigo" disable="true" layoutX="65.0" layoutY="50.0" prefHeight="25.0" prefWidth="78.0">
             <font>
                <Font size="14.0" />
             </font>
          </JFXTextField>
-         <JFXTextField fx:id="txt_cli_representante" layoutX="256.0" layoutY="78.0" prefHeight="30.0" prefWidth="259.0">
+         <JFXTextField fx:id="txt_cli_representante" layoutX="255.0" layoutY="50.0" prefHeight="30.0" prefWidth="259.0">
             <font>
                <Font size="14.0" />
             </font>
          </JFXTextField>
-         <JFXTextField fx:id="txt_cli_tel" layoutX="593.0" layoutY="78.0" prefHeight="30.0" prefWidth="170.0">
+         <JFXTextField fx:id="txt_cli_tel" layoutX="592.0" layoutY="50.0" prefHeight="30.0" prefWidth="170.0">
             <font>
                <Font size="14.0" />
             </font>
          </JFXTextField>
-         <JFXTextField fx:id="txt_cli_cnpj" layoutX="401.0" layoutY="121.0" prefHeight="25.0" prefWidth="183.0">
+         <JFXTextField fx:id="txt_cli_cnpj" layoutX="400.0" layoutY="93.0" prefHeight="25.0" prefWidth="183.0">
             <font>
                <Font size="14.0" />
             </font>
          </JFXTextField>
-         <TableView fx:id="tableView" layoutX="13.0" layoutY="251.0" prefHeight="328.0" prefWidth="776.0">
+         <TableView fx:id="tableView" layoutX="12.0" layoutY="223.0" prefHeight="328.0" prefWidth="776.0">
             <columns>
                <TableColumn fx:id="col_cli_id" prefWidth="69.0" resizable="false" text="Id" />
                <TableColumn fx:id="col_cli_representante" prefWidth="240.0" resizable="false" text="Representante" />
@@ -68,38 +68,38 @@
                <TableColumn fx:id="col_cli_telefone" minWidth="0.0" prefWidth="155.0" resizable="false" text="Telefone" />
             </columns>
          </TableView>
-         <JFXButton layoutX="663.0" layoutY="210.0" onAction="#btnExcluir" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #C24029;" text="Excluir" textFill="WHITE">
+         <JFXButton layoutX="662.0" layoutY="182.0" onAction="#btnExcluir" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #C24029;" text="Excluir" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
          </JFXButton>
-         <JFXButton layoutX="541.0" layoutY="210.0" onAction="#btnEditar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #F1A441;" text="Editar" textFill="WHITE">
+         <JFXButton layoutX="540.0" layoutY="182.0" onAction="#btnEditar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #F1A441;" text="Editar" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
          </JFXButton>
-         <JFXButton fx:id="btnSalvar" layoutX="423.0" layoutY="210.0" onAction="#btnSalvarAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #0F802D;" text="Salvar" textFill="WHITE">
+         <JFXButton fx:id="btnSalvar" layoutX="422.0" layoutY="182.0" onAction="#btnSalvarAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #0F802D;" text="Salvar" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
          </JFXButton>
-         <JFXTextField fx:id="txt_cli_pesquisar" layoutX="14.0" layoutY="210.0" prefHeight="30.0" prefWidth="312.0" promptText="Pesquisar...">
+         <JFXTextField fx:id="txt_cli_pesquisar" layoutX="13.0" layoutY="182.0" prefHeight="30.0" prefWidth="312.0" promptText="Pesquisar...">
             <font>
                <Font size="14.0" />
             </font>
          </JFXTextField>
-         <FontAwesomeIconView fx:id="btnPesquisar" fill="#101e26" glyphName="SEARCH" layoutX="326.0" layoutY="230.0" size="16" />
-         <Label fx:id="txt_error" layoutX="17.0" layoutY="180.0" text="Ops! as senhas não coincidem!" textFill="RED" visible="false">
+         <FontAwesomeIconView fx:id="btnPesquisar" fill="#101e26" glyphName="SEARCH" layoutX="325.0" layoutY="202.0" size="16" />
+         <Label fx:id="txt_error" layoutX="16.0" layoutY="152.0" text="Ops! as senhas não coincidem!" textFill="RED" visible="false">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label layoutX="16.0" layoutY="126.0" text="Empresa:">
+         <Label layoutX="15.0" layoutY="98.0" text="Empresa:">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <JFXTextField fx:id="txt_cli_empresa" layoutX="78.0" layoutY="121.0" prefHeight="30.0" prefWidth="276.0">
+         <JFXTextField fx:id="txt_cli_empresa" layoutX="77.0" layoutY="93.0" prefHeight="30.0" prefWidth="276.0">
             <font>
                <Font size="14.0" />
             </font>

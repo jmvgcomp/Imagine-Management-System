@@ -193,7 +193,7 @@ public class FuncionariosController implements Initializable {
         }
     }
 
-    public void atualizaPesquisaFuncionaro(){
+    private void atualizaPesquisaFuncionaro(){
         try {
             FilteredList<Funcionarios> filtrarDados = new FilteredList<>(listaFuncionarios(), e -> true);
             txt_fun_pesquisar.setOnKeyReleased(e -> {
@@ -204,7 +204,7 @@ public class FuncionariosController implements Initializable {
                         }
 
                         String lowerCaseValue = newValue.toLowerCase();
-                        if (String.valueOf(funcionarios.getTelefone()).contains(newValue)) {
+                        if (funcionarios.getTelefone().contains(newValue)) {
                             return true;
                         } else if (funcionarios.getNome().toLowerCase().contains(lowerCaseValue)) {
                             return true;
@@ -216,6 +216,7 @@ public class FuncionariosController implements Initializable {
                 tableView.setItems(sortedList);
 
             });
+
         } catch (DAOException e) {
             e.printStackTrace();
         }

@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -70,7 +71,7 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton alignment="CENTER" layoutX="11.0" layoutY="540.0" prefHeight="46.0" prefWidth="170.0" text="Sair" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="540.0">
+            <JFXButton alignment="CENTER" layoutX="11.0" layoutY="540.0" onAction="#logout" prefHeight="46.0" prefWidth="170.0" text="Logout" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="540.0">
                <graphic>
                   <MaterialDesignIconView fill="WHITE" glyphName="POWER" size="15" />
                </graphic>
@@ -78,6 +79,13 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-         </children></AnchorPane>
+            <Label layoutX="15.0" layoutY="477.0" text="Bem vindo, " textFill="WHITE" />
+            <Label fx:id="usuarioLogado" layoutX="77.0" layoutY="477.0" text="usuario" textFill="WHITE" />
+            <Label layoutX="15.0" layoutY="523.0" text="Data:" textFill="WHITE" />
+            <Label fx:id="data" layoutX="52.0" layoutY="523.0" text="data atual" textFill="WHITE" />
+            <Label layoutX="15.0" layoutY="500.0" text="Nivel:" textFill="WHITE" />
+            <Label fx:id="nivel" layoutX="52.0" layoutY="500.0" text="nivel" textFill="WHITE" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
