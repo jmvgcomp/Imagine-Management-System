@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 
 public class VendasController {
 
+
+
     @FXML
     void btnEditar(ActionEvent event) {
 
